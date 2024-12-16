@@ -5,7 +5,7 @@ async def handle_product(request):
     data = await request.json()
     brojevi = data.get("brojevi")
     if not isinstance(data.get("brojevi"), list):
-        return web.json_response({"error": "Ulazni podatak mora biti lista s brojevima"}, status=200)
+        return web.json_response({"error": "Ulazni podatak mora biti lista s brojevima"}, status=400)
     
     umnozak = prod(brojevi)
     return web.json_response({"umnozak": umnozak})
