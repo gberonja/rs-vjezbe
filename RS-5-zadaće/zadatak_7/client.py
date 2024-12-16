@@ -14,7 +14,7 @@ async def fetch_kolicnik_data(session, data_json):
     return await response.json()
 
 async def main():
-    data = [1 for i in range(1,15)]
+    data = [i for i in range(1,15)]
     data_json = {'brojevi': data}
     
     async with aiohttp.ClientSession() as session:
@@ -36,6 +36,5 @@ async def main():
         print(f"Umnožak brojeva: {combined_data["umnozak"]}")
         print(f"Količnik umnoška i zbroja: {quotient}")
     
-if __name__ == '__main__':
-    asyncio.run(main())
+asyncio.run(main())
         
