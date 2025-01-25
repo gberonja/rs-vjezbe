@@ -1,0 +1,18 @@
+services:
+  authapi:
+    build: ./authAPI
+    image: authapi
+    ports:
+      - "${PORT_AUTHAPI}:9000"
+    networks:
+      - interna_mreza
+  socialapi:
+    build: ./socialAPI
+    image: socialapi
+    ports:
+      - "${PORT_SOCIALAPI}:3500"
+    networks:
+      - interna_mreza
+networks:
+  interna_mreza:
+    driver: bridge
